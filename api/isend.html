@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.1">
-<title>numba_mpi.api API documentation</title>
-<meta name="description" content="functions that are part of the package API">
+<title>numba_mpi.api.isend API documentation</title>
+<meta name="description" content="MPI_Isend() implementation">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
@@ -22,76 +22,28 @@ hljs.highlightAll();
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>numba_mpi.api</code></h1>
+<h1 class="title">Module <code>numba_mpi.api.isend</code></h1>
 </header>
 <section id="section-intro">
-<p>functions that are part of the package API</p>
+<p>MPI_Isend() implementation</p>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="numba_mpi.api.allreduce" href="allreduce.html">numba_mpi.api.allreduce</a></code></dt>
+<dt id="numba_mpi.api.isend.isend"><code class="name flex">
+<span>def <span class="ident">isend</span></span>(<span>data, dest, tag=0)</span>
+</code></dt>
 <dd>
-<div class="desc"><p>file contains MPI_Allreduce() implementations</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.barrier" href="barrier.html">numba_mpi.api.barrier</a></code></dt>
-<dd>
-<div class="desc"><p>file contains MPI_Barrier() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.bcast" href="bcast.html">numba_mpi.api.bcast</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Bcast() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.initialized" href="initialized.html">numba_mpi.api.initialized</a></code></dt>
-<dd>
-<div class="desc"><p>file contains MPI_Initialized() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.irecv" href="irecv.html">numba_mpi.api.irecv</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Irecv() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.isend" href="isend.html">numba_mpi.api.isend</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Isend() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.operator" href="operator.html">numba_mpi.api.operator</a></code></dt>
-<dd>
-<div class="desc"><p>operators supported by MPI</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.rank" href="rank.html">numba_mpi.api.rank</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Comm_rank() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.recv" href="recv.html">numba_mpi.api.recv</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Recv() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.requests" href="requests.html">numba_mpi.api.requests</a></code></dt>
-<dd>
-<div class="desc"><p>Utilities for handling MPI_Requests with respective Wait and Test function
-wrappers.</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.scatter_gather" href="scatter_gather.html">numba_mpi.api.scatter_gather</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Scatter() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.send" href="send.html">numba_mpi.api.send</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Send() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.size" href="size.html">numba_mpi.api.size</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Comm_size() implementation</p></div>
-</dd>
-<dt><code class="name"><a title="numba_mpi.api.wtime" href="wtime.html">numba_mpi.api.wtime</a></code></dt>
-<dd>
-<div class="desc"><p>MPI_Wtime() implementation</p></div>
+<div class="desc"><p>Wrapper for MPI_Send. If successful (i.e. result is MPI_SUCCESS),
+returns c-style pointer to valid MPI_Request handle that may be used
+with appropriate wait and test functions. Mimicking <code>mpi4py</code>, default
+value for <code>tag</code> is set to zero.</p></div>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
 </section>
 <section>
 </section>
@@ -103,25 +55,12 @@ wrappers.</p></div>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="numba_mpi" href="../index.html">numba_mpi</a></code></li>
+<li><code><a title="numba_mpi.api" href="index.html">numba_mpi.api</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
-<ul>
-<li><code><a title="numba_mpi.api.allreduce" href="allreduce.html">numba_mpi.api.allreduce</a></code></li>
-<li><code><a title="numba_mpi.api.barrier" href="barrier.html">numba_mpi.api.barrier</a></code></li>
-<li><code><a title="numba_mpi.api.bcast" href="bcast.html">numba_mpi.api.bcast</a></code></li>
-<li><code><a title="numba_mpi.api.initialized" href="initialized.html">numba_mpi.api.initialized</a></code></li>
-<li><code><a title="numba_mpi.api.irecv" href="irecv.html">numba_mpi.api.irecv</a></code></li>
-<li><code><a title="numba_mpi.api.isend" href="isend.html">numba_mpi.api.isend</a></code></li>
-<li><code><a title="numba_mpi.api.operator" href="operator.html">numba_mpi.api.operator</a></code></li>
-<li><code><a title="numba_mpi.api.rank" href="rank.html">numba_mpi.api.rank</a></code></li>
-<li><code><a title="numba_mpi.api.recv" href="recv.html">numba_mpi.api.recv</a></code></li>
-<li><code><a title="numba_mpi.api.requests" href="requests.html">numba_mpi.api.requests</a></code></li>
-<li><code><a title="numba_mpi.api.scatter_gather" href="scatter_gather.html">numba_mpi.api.scatter_gather</a></code></li>
-<li><code><a title="numba_mpi.api.send" href="send.html">numba_mpi.api.send</a></code></li>
-<li><code><a title="numba_mpi.api.size" href="size.html">numba_mpi.api.size</a></code></li>
-<li><code><a title="numba_mpi.api.wtime" href="wtime.html">numba_mpi.api.wtime</a></code></li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="numba_mpi.api.isend.isend" href="#numba_mpi.api.isend.isend">isend</a></code></li>
 </ul>
 </li>
 </ul>
